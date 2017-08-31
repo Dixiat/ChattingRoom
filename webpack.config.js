@@ -31,7 +31,20 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: 'babel-loader'
-            }
+            },
+            {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [{
+                  loader: 'file-loader',
+                  options: {
+                    name: '[name].[ext]?[hash]'
+                  }
+                }]
+            },
         ]
     },
     devServer: {

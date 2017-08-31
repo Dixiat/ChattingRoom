@@ -1,2 +1,5 @@
-/* entry file */
-import './chatting-room.html';
+/* css - common style */
+import './index.css';
+
+/* html - app */
+import './chat-room.html';

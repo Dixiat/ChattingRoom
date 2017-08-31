@@ -1,0 +1,57 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="chat-room-dialog-header">
+    <template>
+        <style>
+            :host {
+                width: 100%;
+                height: 50px;
+                background-color: rgb(86,124,115);
+                display: block;
+            }
+
+            .container {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .avatar img {
+                width: 30px;
+                height: 30px;
+            }
+        </style>
+
+        <div class="container">
+            <div class="avatar">
+                <img src="[[avatar]]" alt="avatar">
+            </div>
+            <div class="name">[[name]]</div>
+        </div>
+    </template>
+
+    <script type="module">
+        class ChatRoomDialogHeader extends Polymer.Element {
+            static get is() { return 'chat-room-dialog-header'; }
+            constructor() {
+                super();
+            }
+
+            static get properties() {
+                return {
+                    avatar: {
+                        type: String,
+                        value: require('../../images/avatar.jpg')
+                    },
+                    name: {
+                        type: String,
+                        value: 'robot'
+                    }
+                }
+            }
+        }
+
+        window.customElements.define(ChatRoomDialogHeader.is, ChatRoomDialogHeader);
+    </script>
+</dom-module>
