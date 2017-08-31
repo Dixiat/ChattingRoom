@@ -13,7 +13,7 @@ const route = require('./server/middlewares/route');
 
 // use middlewares
 server.use(bodyParser());
-server.use(staticFiles('/', './app'));
+server.use(staticFiles('/', './dist'));
 server.use(route());
 
 // start server

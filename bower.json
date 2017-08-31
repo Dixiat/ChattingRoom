@@ -1,0 +1,23 @@
+{
+  "name": "chattingroom",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "MMJ"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "chattingroom"
+  ],
+  "homepage": "https://github.com/Dixiat/ChattingRoom",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.1"
+  }
+}
