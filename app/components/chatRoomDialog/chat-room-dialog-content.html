@@ -1,0 +1,25 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<dom-module id="chat-room-dialog-content">
+    <template>
+        <style>
+            :host {
+                width: 100%;
+                height: 60%;
+                display: block;
+            }
+
+
+        </style>
+
+        <div class="container">
+
+        </div>
+    </template>
+    <script type="module">
+        class ChatRoomDialogContent extends Polymer.Element {
+            static get is() { return 'chat-room-dialog-content'; }
+        }
+
+        window.customElements.define(ChatRoomDialogContent.is, ChatRoomDialogContent);
+    </script>
+</dom-module>

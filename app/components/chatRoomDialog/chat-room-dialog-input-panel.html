@@ -1,0 +1,19 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<dom-module id="chat-room-dialog-input-panel">
+    <template>
+        <style>
+            :host { 
+                width: 100%;
+                height: calc(40% - 50px);
+                display: block;
+            }
+        </style>
+    </template>
+    <script type="module">
+        class ChatRoomDialogInputPanel extends Polymer.Element {
+            static get is() { return 'chat-room-dialog-input-panel'; }
+        }
+
+        window.customElements.define(ChatRoomDialogInputPanel.is, ChatRoomDialogInputPanel);
+    </script>
+</dom-module>

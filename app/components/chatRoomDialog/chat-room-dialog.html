@@ -1,13 +1,16 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 
 <link rel="import" href="./chat-room-dialog-header.html">
+<link rel="import" href="./chat-room-dialog-content.html">
+<link rel="import" href="./chat-room-dialog-input-panel.html">
+<link rel="import" href="./chat-room-dialog-close-btn.html">
 
 <dom-module id="chat-room-dialog">
     <template>
         <style>
             :host {
-                width: 500px;
-                height: 400px;
+                width: 600px;
+                height: 500px;
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -18,6 +21,9 @@
         </style>
 
         <chat-room-dialog-header></chat-room-dialog-header>
+        <chat-room-dialog-content></chat-room-dialog-content>
+        <chat-room-dialog-input-panel></chat-room-dialog-input-panel>
+        <chat-room-dialog-close-btn></chat-room-dialog-close-btn>
     </template>
 
     <script type="module">

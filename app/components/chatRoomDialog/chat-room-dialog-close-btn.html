@@ -1,0 +1,45 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../../bower_components/iron-icons/iron-icons.html">
+<dom-module id="chat-room-dialog-close-btn">
+    <template>
+        <style>
+            :host {
+                position: absolute;
+                top: 0;
+                right: -50px;
+            }
+
+            .close-btn {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #000;
+                cursor: pointer;
+                transition: background-color .2s;
+            }
+            .close-btn:hover {
+                background-color: red;
+            }
+
+            .icon {
+                width: 35px;
+                height: 35px;
+                fill: #fff;
+            }
+        </style>
+
+        <div class="close-btn">
+            <iron-icon class="icon" icon="icons:clear"></iron-icon>
+        </div>
+    </template>
+    <script type="module">
+        class ChatRoomDialogCloseBtn extends Polymer.Element {
+            static get is() { return 'chat-room-dialog-close-btn'; }
+        }
+
+        window.customElements.define(ChatRoomDialogCloseBtn.is, ChatRoomDialogCloseBtn);
+    </script>
+</dom-module>
