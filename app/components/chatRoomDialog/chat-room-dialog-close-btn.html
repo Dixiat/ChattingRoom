@@ -8,9 +8,6 @@
                 position: absolute;
                 top: 0;
                 right: -50px;
-            }
-
-            .close-btn {
                 width: 50px;
                 height: 50px;
                 display: flex;
@@ -18,9 +15,10 @@
                 align-items: center;
                 background-color: #000;
                 cursor: pointer;
-                transition: background-color .2s;
+                transition: background-color .1s;
             }
-            .close-btn:hover {
+
+            :host(:hover) {
                 background-color: red;
             }
 
@@ -31,13 +29,16 @@
             }
         </style>
 
-        <div class="close-btn">
-            <iron-icon class="icon" icon="icons:clear"></iron-icon>
-        </div>
+        <iron-icon class="icon" icon="icons:clear"></iron-icon>
     </template>
     <script type="module">
         class ChatRoomDialogCloseBtn extends Polymer.Element {
             static get is() { return 'chat-room-dialog-close-btn'; }
+
+            constructor() {
+                super();
+            }
+
         }
 
         window.customElements.define(ChatRoomDialogCloseBtn.is, ChatRoomDialogCloseBtn);

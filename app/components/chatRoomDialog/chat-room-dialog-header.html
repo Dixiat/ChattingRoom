@@ -7,17 +7,12 @@
                 width: 100%;
                 height: 50px;
                 background-color: rgb(86,124,115);
-                display: block;
-            }
-
-            .container {
-                height: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
 
-            .container div {
+            div {
                 margin: 0 5px;
             }
 
@@ -34,12 +29,10 @@
             }
         </style>
 
-        <div class="container">
-            <div class="avatar">
-                <img src="[[avatar]]" alt="avatar">
-            </div>
-            <div class="name">[[name]]</div>
+        <div class="avatar">
+            <img src="[[avatar]]" alt="avatar">
         </div>
+        <div class="name">[[name]]</div>
     </template>
 
     <script type="module">

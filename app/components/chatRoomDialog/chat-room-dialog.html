@@ -7,7 +7,7 @@
 
 <dom-module id="chat-room-dialog">
     <template>
-        <style>
+        <style is="custom-style">
             :host {
                 width: 600px;
                 height: 500px;
@@ -18,18 +18,60 @@
                 bottom: 0;
                 margin: auto;
                 box-shadow: 1px 1px 10px #ccc;
+                display: none;
+            }
+            :host([is-show]) {
+                display: block;
             }
         </style>
 
         <chat-room-dialog-header></chat-room-dialog-header>
-        <chat-room-dialog-content></chat-room-dialog-content>
-        <chat-room-dialog-input-panel></chat-room-dialog-input-panel>
-        <chat-room-dialog-close-btn></chat-room-dialog-close-btn>
+        <chat-room-dialog-content id="content" messages="[[messages]]"></chat-room-dialog-content>
+        <chat-room-dialog-input-panel on-send-message="_sendMessage"></chat-room-dialog-input-panel>
+        <chat-room-dialog-close-btn on-click="_toggleDialog"></chat-room-dialog-close-btn>
     </template>
 
     <script type="module">
         class ChatRoomDialog extends Polymer.Element {
             static get is() { return 'chat-room-dialog'; }
+
+            static get properties() {
+                return {
+                    isShow: {
+                        type: Boolean,
+                        value: true,
+                        reflectToAttribute: true
+                    },
+                    messages: {
+                        type: Array,
+                        value: () => {
+                            return [
+                                { type: 'reply-message', content: 'How are you?' },
+                                { type: 'send-message', content: 'Fine.Thanks!' },
+                            ]
+                        }
+                    }
+                }
+            }
+
+            ready() {
+                super.ready();
+            }
+
+            _toggleDialog(e) {
+                const { isShow } = e && e.detail;
+                this.set('isShow', isShow);
+            }
+
+            _addMessage(message) {
+                this.push('messages', { type: 'send-message', content: message });
+            }
+
+            _sendMessage(e) {
+                const { message } = e && e.detail;
+                this._addMessage(message);
+                setTimeout(() => this.$.content.scrollToEnd());
+            }
         }
 
         window.customElements.define(ChatRoomDialog.is, ChatRoomDialog);

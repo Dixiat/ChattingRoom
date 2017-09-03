@@ -5,20 +5,61 @@
             :host {
                 width: 100%;
                 height: 60%;
-                display: block;
+                display: flex;
                 border-bottom: 1px solid #ccc;
                 overflow-y: scroll;
+                flex-direction: column;
+            }
+
+            .message {
+                max-width: 200px;
+                min-height: 30px;
+                box-shadow: 1px 1px 5px #ccc;
+                padding: 5px 8px;
+                margin: 5px 8px;
+                font-size: 14px;
+                line-height: 30px;
+                word-break: break-all;
+            }
+            .message[type="reply-message"] {
+                align-self: flex-start;
+            }
+            .message[type="send-message"] {
+                align-self: flex-end;
             }
 
         </style>
 
-        <div class="container">
+        <template is="dom-repeat" items="{{messages}}" as="message">
+            <div class="message" type$="[[message.type]]">[[message.content]]</div>
+        </template>
 
-        </div>
     </template>
     <script type="module">
+        import Easing from '../../scripts/easing.js';
+
         class ChatRoomDialogContent extends Polymer.Element {
             static get is() { return 'chat-room-dialog-content'; }
+
+            static get properties() {
+                return {
+
+                }
+            }
+
+            scrollToEnd() {
+                const easing = new Easing();
+                const offsetY = this.scrollHeight - this.clientHeight;
+                if (!offsetY) return;
+
+                const startTime = Date.now(),
+                      timeLimit = 500;
+                const intervalId = setInterval(() => {
+                    const t = (Date.now() - startTime) / timeLimit;
+                    this.scrollTop += offsetY * easing.easeInOutQuad(t);
+                    if (t >= 1) clearInterval(intervalId);
+                }, 20)
+            }
         }
 
         window.customElements.define(ChatRoomDialogContent.is, ChatRoomDialogContent);
