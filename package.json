@@ -37,7 +37,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --inline --hot",
     "build": "webpack",
     "server": "node server.js"
   },
